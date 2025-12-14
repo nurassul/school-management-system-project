@@ -72,17 +72,6 @@ public class School {
         this.teachers = teachers;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        School school = (School) o;
-        return Objects.equals(name, school.name) && Objects.equals(address, school.address) && Objects.deepEquals(students, school.students) && Objects.deepEquals(teachers, school.teachers);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, address, Arrays.hashCode(students), Arrays.hashCode(teachers));
-    }
 
     @Override
     public String toString() {

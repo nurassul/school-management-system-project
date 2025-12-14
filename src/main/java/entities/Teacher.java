@@ -67,24 +67,6 @@ public class Teacher {
     }
 
     @Override
-    public String toString() {
-        return "Teacher{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", subject='" + subject + '\'' +
-                ", position='" + position + '\'' +
-                ", degree='" + degree + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Teacher teacher = (Teacher) o;
-        return Objects.equals(firstName, teacher.firstName) && Objects.equals(lastName, teacher.lastName) && Objects.equals(subject, teacher.subject) && Objects.equals(position, teacher.position) && Objects.equals(degree, teacher.degree);
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, subject, position, degree);
     }

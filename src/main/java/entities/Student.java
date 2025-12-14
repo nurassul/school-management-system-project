@@ -80,18 +80,6 @@ public class Student {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return id == student.id && age == student.age && Double.compare(gpa, student.gpa) == 0 && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(group, student.group);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, age, gpa, group);
-    }
-
-    @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
