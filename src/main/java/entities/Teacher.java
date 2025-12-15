@@ -66,8 +66,5 @@ public class Teacher {
         this.degree = degree;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, subject, position, degree);
-    }
+
 }
