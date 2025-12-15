@@ -66,5 +66,14 @@ public class Teacher {
         this.degree = degree;
     }
 
-
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", subject='" + subject + '\'' +
+                ", position='" + position + '\'' +
+                ", degree='" + degree + '\'' +
+                '}';
+    }
 }

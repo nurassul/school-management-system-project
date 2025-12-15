@@ -21,7 +21,7 @@ public class Student {
     }
 
     public void printStudentInfo() {
-        System.out.println(firstName + " " + lastName + " " + gpa);
+        System.out.println(firstName + " " + lastName + " " + " GPA: " + gpa + " Group: " + group);
     }
 
 
@@ -90,4 +90,6 @@ public class Student {
                 ", group='" + group + '\'' +
                 '}';
     }
+
+
 }
