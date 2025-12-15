@@ -137,6 +137,14 @@ public class Main {
             System.out.println("In School1 there isn't teacherProgramming");
         }
 
+        Teacher t5 = school3.findTeacherBySubject("History");
+        if(t5 != null) {
+            System.out.println("School3 teacherHistory: ");
+            t5.printTeacherInfo();
+        } else {
+            System.out.println("In School3 there isn't teacherHistory");
+        }
+
     }
 
 }
