@@ -129,7 +129,13 @@ public class Main {
             System.out.println("In School1 there isn't teacherCalculus");
         }
 
-
+        Teacher t4 = school1.findTeacherBySubject("Programming");
+        if(t4 != null) {
+            System.out.println("School1 teacherProgramming: ");
+            t4.printTeacherInfo();
+        } else {
+            System.out.println("In School1 there isn't teacherProgramming");
+        }
 
     }
 
