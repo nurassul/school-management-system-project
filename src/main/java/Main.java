@@ -98,7 +98,6 @@ public class Main {
                 System.out.println(" is studying good");
             }
         }
-
         System.out.println("====================");
 
         Teacher t = school3.findTeacherBySubject("PE");
