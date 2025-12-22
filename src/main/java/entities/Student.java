@@ -2,73 +2,87 @@ package entities;
 
 import java.util.Objects;
 
-public class Student {
+public class Student extends Person{
 
-    private int id;
-    private String firstName;
-    private String lastName;
-    private int age;
+    // specific fields of class
     private double gpa;
     private String group;
 
-    public Student(int id, String firstName, String lastName, int age, double gpa, String group) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.gpa = gpa;
-        this.group = group;
+    private Student(StudentBuilder builder) {
+        super(builder.id, builder.firstName, builder.lastName, builder.age);
+        this.gpa = builder.gpa;
+        this.group = builder.group;
     }
-
-    public void printStudentInfo() {
-        System.out.println(firstName + " " + lastName + " " + " GPA: " + gpa + " Group: " + group);
-    }
-
 
     public boolean isExcellent() {
         return gpa >= 3.5;
     }
 
-    public Student(){}
-
-    public int getId() {
-        return id;
+    @Override
+    public String getRoleDetails() {
+        return "Student: " + group + ", GPA: " + gpa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return super.toString() + " | Role: Student" + " | GPA: " + gpa + " | group: " + group;
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Student student = (Student) o;
+        return Double.compare(gpa, student.gpa) == 0 && Objects.equals(group, student.group);
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), gpa, group);
     }
 
-    public String getLastName() {
-        return lastName;
-    }
+    public static class StudentBuilder {
+        private int id;
+        private String firstName;
+        private String lastName;
+        private int age;
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+        private double gpa;
+        private String group;
 
-    public int getAge() {
-        return age;
-    }
+        public StudentBuilder id(int id){
+            this.id = id;
+            return this;
+        }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+        public StudentBuilder firstName(String firstName){
+            this.firstName = firstName;
+            return this;
+        }
 
-    public double getGpa() {
-        return gpa;
-    }
+        public StudentBuilder lastName(String lastName){
+            this.lastName = lastName;
+            return this;
+        }
 
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
+        public StudentBuilder age(int age){
+            this.age = age;
+            return this;
+        }
+
+        public StudentBuilder gpa(double gpa){
+            this.gpa = gpa;
+            return this;
+        }
+
+        public StudentBuilder group(String group){
+            this.group = group;
+            return this;
+        }
+
+        public Student build() {
+            return new Student(this);
+        }
     }
 
     public String getGroup() {
@@ -79,17 +93,11 @@ public class Student {
         this.group = group;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                ", gpa=" + gpa +
-                ", group='" + group + '\'' +
-                '}';
+    public double getGpa() {
+        return gpa;
     }
 
-
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
 }
