@@ -1,9 +1,8 @@
-package entities;
+package com.school.dto;
 
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +14,7 @@ import java.util.Objects;
 public class School {
 
     // main fields
+    private Long id;
     private String name;
     private String address;
     private SchoolType schoolType;
@@ -35,32 +35,6 @@ public class School {
 
     public void addTeacher(Teacher t) {
         teachers.add(t);
-    }
-
-
-
-    public void printInfo() {
-        System.out.println("================");
-        System.out.println("School: " + name + " address: " + address + " type of school: " + schoolType + " rating: " + rating);
-        System.out.println("Students: " + students.size());
-        System.out.println("Teachers: " + teachers.size());
-        System.out.println("================");
-    }
-
-   public void printAllStudents() {
-        if(students != null) {
-            for (Student s : students) {
-                System.out.println(s.toString());
-            }
-        }
-   }
-
-    public void printAllTeachers() {
-        if(students != null) {
-            for (Teacher t : teachers) {
-                System.out.println(t.toString());
-            }
-        }
     }
 
     @Override

@@ -1,4 +1,4 @@
-package entities;
+package com.school.dto;
 
 public enum SchoolType {
     GYMNASIUM,
