@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class TeacherService {
@@ -21,7 +23,7 @@ public class TeacherService {
 
 
     @Transactional
-    public Teacher create(Teacher dto) {
+    public Teacher createTeacher(Teacher dto) {
         return teacherMapper.toDto(teacherRepository.save(teacherMapper.toEntity(dto)));
     }
 
@@ -29,6 +31,14 @@ public class TeacherService {
     public Teacher getById(Long id) {
         return teacherRepository.findById(id).map(teacherMapper::toDto)
                 .orElseThrow(() -> new EntityNotFoundException("Teacher not found!"));
+    }
+
+    public List<Teacher> getAllTeachers() {
+        return teacherRepository
+                .findAll()
+                .stream()
+                .map(teacherMapper::toDto)
+                .toList();
     }
 
     @Transactional
