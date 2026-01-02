@@ -36,7 +36,11 @@ public class SchoolService {
 
     @Transactional(readOnly = true)
     public List<School> getAll() {
-        return schoolRepository.findAll().stream().map(schoolMapper::toDto).toList();
+        return schoolRepository
+                .findAll()
+                .stream()
+                .map(schoolMapper::toDto)
+                .toList();
     }
 
     @Transactional
@@ -57,14 +61,8 @@ public class SchoolService {
 
 
 
-
-
-
-
-
-
     @Transactional(readOnly = true)
-    public double calculateAverageGPA(Long schoolId) {
+    protected double calculateAverageGPA(Long schoolId) {
         SchoolEntity school = schoolRepository.findById(schoolId)
                 .orElseThrow(() -> new RuntimeException("School not found!"));
 

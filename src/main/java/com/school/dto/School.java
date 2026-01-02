@@ -39,7 +39,7 @@ public class School {
 
     @Override
     public String toString() {
-        return "School: " + name + " | address: " + address + " | type of school: " + schoolType + " | rating: " + rating;
+        return "School: " + name + " | address: " + address + " | schoolType of school: " + schoolType + " | rating: " + rating;
     }
 
     @Override

@@ -27,7 +27,7 @@ public class SchoolEntity {
     private String address;
 
     @Enumerated(EnumType.STRING)
-    private SchoolType type;
+    private SchoolType schoolType;
 
     private double rating;
 

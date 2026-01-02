@@ -7,8 +7,10 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {StudentMapper.class, TeacherMapper.class})
 public interface SchoolMapper {
-    @Mapping(target = "id", source = "id")
+
+    @Mapping(target = "schoolType", source = "schoolType")
     School toDto(SchoolEntity entity);
 
+    @Mapping(target = "schoolType", source = "schoolType")
     SchoolEntity toEntity(School dto);
 }

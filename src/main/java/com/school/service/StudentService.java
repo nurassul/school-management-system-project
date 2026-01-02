@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class StudentService {
@@ -22,12 +24,20 @@ public class StudentService {
 
 
 
-    @Transactional
-    public Student create(Student dto) {
+
+    public List<Student> getAllStudents(){
+        return studentRepository
+                .findAll()
+                .stream()
+                .map(mapper::toDto)
+                .toList();
+    }
+
+    public Student createStudent(Student dto) {
         return mapper.toDto(studentRepository.save(mapper.toEntity(dto)));
     }
 
-    @Transactional(readOnly = true)
+
     public Student getById(Long studentId) {
         return studentRepository.findById(studentId)
                 .map(mapper::toDto)
@@ -63,7 +73,7 @@ public class StudentService {
             throw new IllegalArgumentException("Student already enrolled!");
         }
 
-        if (school.getType() == SchoolType.GYMNASIUM || school.getType() == SchoolType.LICEUM) {
+        if (school.getSchoolType() == SchoolType.GYMNASIUM || school.getSchoolType() == SchoolType.LICEUM) {
 
             if (student.getGpa() >= 2.5) {
                 student.setSchool(school);
