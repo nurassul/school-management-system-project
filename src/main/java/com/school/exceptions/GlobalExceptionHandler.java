@@ -49,7 +49,7 @@ public class GlobalExceptionHandler {
                 .body(errorResponseDTO);
     }
 
-    @ExceptionHandler(exception = {
+    @ExceptionHandler(value = {
             IllegalArgumentException.class,
             IllegalStateException.class
     })
